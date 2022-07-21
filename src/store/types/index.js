@@ -1,0 +1,9 @@
+const types = {
+  SET_AUTH: "SET_AUTH",
+  SET_REPOSITORIES: "SET_REPOSITORIES",
+
+  SET_SIGN_UP_ERROR: "SET_SIGN_UP_ERROR",
+  SET_LOGIN_ERROR: "SET_LOGIN_ERROR",
+};
+
+export default types;

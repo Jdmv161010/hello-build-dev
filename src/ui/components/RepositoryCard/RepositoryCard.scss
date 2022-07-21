@@ -1,0 +1,66 @@
+.repositoryCard {
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px #00000029;
+  color: #1a1446;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 290px;
+  padding: 20px;
+  position: relative;
+  width: 300px;
+
+  &__selected {
+    background-color: #f5f5f5cc;
+  }
+
+  &__header {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__body {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100px;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  &__favorite {
+    all: unset;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  // TODO description is to large
+  &__label {
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    text-align: end;
+    width: 100%;
+  }
+}
