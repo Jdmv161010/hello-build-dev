@@ -1,34 +1,38 @@
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import "./RepositoryCard.scss";
 
 const RepositoryCard = ({
+  description,
   id,
+  isFavorite,
   name,
+  onFavoriteClick,
   privacy,
   url,
-  description,
-  onFavoriteClick,
 }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isNewFavorite, setIsNewFavorite] = useState(isFavorite);
 
-  function onClick(e, id) {
+  function onClick(e) {
     e.preventDefault();
-    setIsFavorite((prev) => !prev);
+    setIsNewFavorite((prev) => !prev);
     onFavoriteClick(id);
   }
 
   return (
     <main
-      className={`repositoryCard ${isFavorite && "repositoryCard__selected"}`}
+      className={`repositoryCard ${
+        isNewFavorite && "repositoryCard__selected"
+      }`}
     >
       <section className="repositoryCard__header">
         <button
           className="repositoryCard__favorite"
           type="button"
-          onClick={(e) => onClick(e, id)}
+          onClick={onClick}
         >
-          {isFavorite ? <Favorite /> : <FavoriteBorder />}
+          {isNewFavorite ? <Favorite /> : <FavoriteBorder />}
         </button>
         <span className="repositoryCard__title">{name}</span>
       </section>
@@ -49,6 +53,16 @@ const RepositoryCard = ({
       </section>
     </main>
   );
+};
+
+RepositoryCard.propTypes = {
+  description: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  onFavoriteClick: PropTypes.func.isRequired,
+  privacy: PropTypes.bool.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 export default RepositoryCard;

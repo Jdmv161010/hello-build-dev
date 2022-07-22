@@ -7,7 +7,7 @@ export const setRepositories = (data) => ({
 });
 
 export function getRepositories() {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
       const user = sessionStorage.getItem("user");
 
@@ -18,6 +18,23 @@ export function getRepositories() {
       const { data } = response.data;
 
       dispatch(setRepositories(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function saveFavRepositories(favRepos) {
+  return async () => {
+    try {
+      const user = sessionStorage.getItem("user");
+
+      const body = { data: { user, favRepos } };
+      const response = await postRequest("/profile/save-repositories", body);
+
+      if (response instanceof Error) throw response;
+
+      window.alert("Successfully saved");
     } catch (error) {
       console.log(error);
     }

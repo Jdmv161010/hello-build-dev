@@ -5,7 +5,6 @@ import store from "store/store";
 import { AppTheme } from "theme";
 
 function App() {
-  // TODO add proptypes validation
   return (
     <AppTheme>
       <Provider store={store}>

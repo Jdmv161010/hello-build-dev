@@ -1,4 +1,5 @@
 import { Grid } from "@mui/material";
+import PropTypes from "prop-types";
 import "./AuthLayout.scss";
 
 const AuthLayout = ({ children, title }) => {
@@ -21,6 +22,11 @@ const AuthLayout = ({ children, title }) => {
       </Grid>
     </Grid>
   );
+};
+
+AuthLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default AuthLayout;

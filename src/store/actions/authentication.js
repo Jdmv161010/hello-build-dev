@@ -2,9 +2,13 @@ import { postRequest } from "api";
 import types from "store/types";
 import { setLoginError, setSignUpError } from "./ui";
 
-export const setAuth = (data) => ({
-  type: types.SET_AUTH,
+export const setLogin = (data) => ({
+  type: types.SET_LOGIN,
   payload: data,
+});
+
+export const setLogout = () => ({
+  type: types.SET_LOGOUT,
 });
 
 export function registerUser(user, navigate) {
@@ -38,7 +42,7 @@ export function authUser(user) {
       if ("isAuthenticated" in data && data.isAuthenticated) {
         sessionStorage.setItem("isAuthenticated", true);
         sessionStorage.setItem("user", data.user);
-        dispatch(setAuth(true));
+        dispatch(setLogin(true));
       }
     } catch (error) {
       dispatch(setLoginError(true));

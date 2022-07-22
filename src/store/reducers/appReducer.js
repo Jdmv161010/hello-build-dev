@@ -7,7 +7,7 @@ const initialState = {
 
 export const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.SET_AUTH:
+    case types.SET_LOGIN:
       return {
         ...state,
         isAuthenticated: action.payload,
@@ -16,6 +16,10 @@ export const appReducer = (state = initialState, action) => {
       return {
         ...state,
         repositories: action.payload,
+      };
+    case types.SET_LOGOUT:
+      return {
+        ...initialState,
       };
     default:
       return state;

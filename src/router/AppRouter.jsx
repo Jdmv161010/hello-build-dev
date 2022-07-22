@@ -15,6 +15,8 @@ const AppRouter = () => {
   useEffect(() => {
     if (isAuthenticated) {
       setSessionData(JSON.parse(sessionStorage.getItem("isAuthenticated")));
+    } else {
+      setSessionData(false);
     }
   }, [isAuthenticated]);
 
